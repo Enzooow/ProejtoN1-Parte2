@@ -1,11 +1,7 @@
-ListaNomes = [""]
-ListaEmail = [""]
-
-i = 0
+Lista = {}
 
 
 def interface():
-    global numOpcao
     print("\n")
     print("Evento técnico Anhembi 2021")
     print("1 - Cadastro de novos usuários | Nome completo e e-mail")
@@ -14,50 +10,52 @@ def interface():
     print("4 - Verificação de usuários | Busca por nome completo")
     print("5 - Remover usuário | Remoção por e-mail")
     print("6 - Alterar nome de usuário cadastrado | Por e-mail")
-    numOpcao = int(input("Insira sua opção: "))
     print("\n")
 
 
-def opcao1():
-    global Nome
-    global Email
-    Nome = input("Insira o nome completo: ")
-    Email = input("Insira o e-mail: ")
-    ListaNomes.append(Nome)
-    ListaEmail.append(Email)
-    print("Processo concluído com sucesso!")
+def opcaoprincipal():
+    global numOpcao
+    numOpcao = int(input("Insira sua opção: "))
+
+
+def principal():
     interface()
+    opcaoprincipal()
+
+
+def opcao1():
+    global Lista
+    Nome = input("Insira seu nome: ")
+    Email = input("Insira seu email: ")
+    Lista.update({Nome: Email})
+    print("Processo concluído com sucesso!")
+    return main()
 
 
 def opcao2():
-    print(ListaNomes)
-    print(ListaNomes)
-    interface()
+    print(Lista)
+    return main()
 
 
 def opcao3():
-    print(ListaNomes.sort())
-    interface()
-
-
-while(i == 0):
-    interface()
-    if numeroOpcao == 1:
-        opcao1()
-        numeroOpcao = int(input("Escolha sua opção: "))
-    elif numeroOpcao == 2:
-        opcao2()
-        numeroOpcao = int(input("Escolha sua opção: "))
-    elif numeroOpcao == 3:
-        opcao3()
-        numeroOpcao = int(input("Escolha sua opção: "))
-
-else:
-    print("Opção inválida! Insira novamente.")
+    print(sorted(Lista))
+    return main()
 
 
 def main():
-    interface()
+    principal()
+    if numOpcao == 1:
+        opcao1()
+    elif numOpcao == 2:
+        opcao2()
+    elif numOpcao == 3:
+        opcao3()
+    elif numOpcao == 4:
+        pass
+    elif numOpcao == 5:
+        pass
+    elif numOpcao == 6:
+        pass
 
 
 if __name__ == "__main__":

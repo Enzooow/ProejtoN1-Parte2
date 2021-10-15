@@ -34,11 +34,38 @@ def opcao1():
 
 def opcao2():
     print(Lista)
+    print("Processo concluído com sucesso!")
     return main()
 
 
 def opcao3():
     print(sorted(Lista))
+    print("Processo concluído com sucesso!")
+    return main()
+
+
+def opcao4():
+    VerifNome = input("Insira o nome que deseja buscar: ")
+    if VerifNome in Lista:
+        print("Este usuário faz parte da lista de participantes.")
+    else:
+        print("Este usuário não faz parte da lista de participantes.")
+    print("Processo concluído com sucesso!")
+    return main()
+
+
+def opcao5():
+    RemovUser = input("Insira o e-mail do usuário que deseja remover: ")
+    Lista.pop(RemovUser)
+    print("Processo concluído com sucesso!")
+    return main()
+
+
+def opcao6():
+    AltUserEmail = input("Insira o e-mail do usuário que deseja renomear: ")
+    AltUserNome = input("Insira o novo nome: ")
+    Lista[AltUserNome] = AltUserEmail
+    print("Processo concluído com sucesso!")
     return main()
 
 
@@ -51,11 +78,11 @@ def main():
     elif numOpcao == 3:
         opcao3()
     elif numOpcao == 4:
-        pass
+        opcao4()
     elif numOpcao == 5:
-        pass
+        opcao5()
     elif numOpcao == 6:
-        pass
+        opcao6()
 
 
 if __name__ == "__main__":

@@ -25,6 +25,8 @@ def principal():
 
 def opcao1():
     global Lista
+    global Nome
+    global Email
     Nome = input("Insira seu nome: ")
     Email = input("Insira seu email: ")
     Lista.update({Nome: Email})
@@ -56,15 +58,26 @@ def opcao4():
 
 def opcao5():
     RemovUser = input("Insira o e-mail do usuário que deseja remover: ")
-    Lista.pop(RemovUser)
+    RemovUser = Nome
+    if RemovUser in Lista:
+        del Lista[Nome]
+    else:
+        print("Insira um e-mail válido.")
+        return main()
     print("Processo concluído com sucesso!")
     return main()
 
 
 def opcao6():
     AltUserEmail = input("Insira o e-mail do usuário que deseja renomear: ")
-    AltUserNome = input("Insira o novo nome: ")
-    Lista[AltUserNome] = AltUserEmail
+    for nomes, emails in Lista.items():
+        if emails == AltUserEmail:
+            AltUserEmail = Email
+            AltUserNome = input("Insira o novo nome: ")
+            Lista.update[AltUserNome:AltUserEmail]
+        else:
+            print("Insira um e-mail válido.")
+            return main()
     print("Processo concluído com sucesso!")
     return main()
 

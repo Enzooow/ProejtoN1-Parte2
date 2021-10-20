@@ -121,9 +121,9 @@ def opcao5():
 def opcao6():
     global Usuário
     AltUserEmail = input("Insira o e-mail do usuário que deseja renomear: ")
-    NovoNome = input("insira o novo nome: ")
     for User in ListaUsuários:
         if User["E-mail"] == AltUserEmail:
+            NovoNome = input("insira o novo nome: ")
             User["Nome"] = NovoNome
         else:
             print(Fore.LIGHTRED_EX + "Insira um e-mail válido.")
